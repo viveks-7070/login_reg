@@ -1,0 +1,12 @@
+<% u = User.find_by(id: session[:user_id]) %>
+
+<% if u.present? %>
+    Welcome <br>
+    <% session[:user_id] %>
+    <%= u.email %>
+    <br><br>
+    <%= link_to 'Logout', session_path(session[:user_id]), method: :delete %>
+<% else %>
+    <h5>Need to login to viste this page</h5>
+    <%= link_to 'Back', users_path %>
+<% end %>
